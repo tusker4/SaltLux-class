@@ -1,0 +1,327 @@
+문제1.
+
+N = int(input("정수 입력 : "))
+# 입력받은 값을 500으로 나누어 나머지가 0이면 정수 나누기의 몫을 
+# 나머지가 0이 아니면 정수 나누기 몫에 1을 더한 값을 출력
+C = N // 500 if (N % 500) == 0 else (N // 500) + 1
+print(C)
+
+
+문제 2.
+
+N = int(input("정수 입력 : "))
+hap = 0
+for i in range(1, N+1):
+    if i % 2 == 0:
+        continue
+    hap += i
+print(hap)
+
+문제 3.
+N = int(input("정수 입력 : "))
+hap = 0
+i = 0
+while i <= N:
+    i += 1
+    if i % 2 == 0:
+        hap += i
+print(hap)
+
+문제 4.
+
+N = 2020
+M = 3020
+for year in range(N, M+1):
+    if year % 400 == 0:
+        print(f"{year}년 : 윤년")
+    elif year % 100 == 0:
+        print(f"{year}년 : 평년")
+    elif year % 4 == 0:
+        print(f"{year}년 : 윤년")
+    else:
+        print(f"{year}년 : 평년")
+
+문제 5.
+
+# 인자의 값이 소수이면 True, 소수가 아니면 False를 반환하는 함수
+def is_sosu(n):
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+N = int(input("정수 입력 : "))
+if is_sosu(N):
+    print(1)
+else:
+    print(-1)
+
+문제 6.
+
+def is_sosu(n):
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+N = int(input("정수 입력 : "))
+# 1 부터 N 까지 is_sosu() 함수를 호출하고 is_sosu() 함수가 True를 반환하는 
+# 값만으로 리스트를 구성한다.
+result = [i for i in range(1, N+1) if is_sosu(i)]
+for i in result:
+    print(i, end=" ")
+
+
+문제 7.
+
+N = int(input("점수 입력 : "))
+match N // 10:
+    case 9 | 10:
+        print('A')
+    case 8:
+        print('B')
+    case 7:
+        print('C')
+    case 6:
+        print('D')
+    case _:
+        print('F')
+
+문제 8.
+
+N = int(input("정수 입력 : "))
+for i in range(1, N + 1):
+    print(f"2의 {i}승 : {2 ** i}")
+
+문제 9. 
+
+N = int(input("정수 입력 : "))
+M = int(input("정수 입력 : "))
+for i in range(1, M + 1):
+    print(f"{M}의 {i}승 : {M ** i}")
+
+문제 10.
+
+COINS = [500, 100, 50, 10, 5, 1]
+N = int(input("지급액 : "))
+cnt = 0
+for i in range(len(COINS)):
+    cnt += N // COINS[i]
+    N %= COINS[i]
+
+print(cnt)
+
+
+문제 11.
+
+N = int(input("학생수 : "))
+M = 4
+print(N // M if N % M == 0 else N // M + 1)
+
+
+문제 12.
+
+N = int(input("학생수 : "))
+M = 3
+K = 4
+cnt = N // M if N % M == 0 else N // M + 1
+# 필요 수량은 선풍기 필요수량 - 보유수량, 최대 선풍기 필요 수가 보유 수량과 같거나 작다면 0
+print(cnt - K if (cnt - K) > 0 else 0)
+
+문제 13.
+
+N = int(input("정수값 : "))
+cnt = 0
+tmp = N
+while tmp > 0:
+    cnt += 1
+    tmp //= 10
+print(f"{N}의 자릿수 : {cnt}")
+
+문제 14. 
+
+def counter(n):
+    cnt = 0
+    while n > 0:
+        cnt += 1
+        n //= 10
+    return cnt
+
+N = int(input("정수값 : "))
+count = counter(N)
+print(f"선두 : {N // (10 ** (count // 2))}")
+print(f"후위 : {N % (10 ** (count // 2))}")
+
+또는
+
+N = input("정수값 : ")
+print(f"선두 : {N[:len(N)//2]}")
+print(f"후위 : {N[len(N)//2:]}")
+
+
+
+문제 15.
+
+N = int(input("정수값 : "))
+print(N // 100 * 100)
+
+
+문제 16. 
+
+N = int(input("정수 입력 : "))
+for i in range(1, N + 1):
+    if i * i <= N:
+        print(i, end=' ')
+        continue
+    break
+
+문제 17. 
+
+N = int(input('선수 1 입력 : '))
+M = int(input('선수 2 입력 : '))
+
+if N - M == -1 or N - M == 2:
+    print('선수 2 승')
+elif N - M == -2 or N - M == 1:
+    print('선수 1 승')
+else:
+    print('무승부')
+
+
+문제 18.
+
+N = int(input("자릿수 입력 : "))
+value = 1
+for i in range(1, N):
+    value *= 10
+print(value)
+
+
+문제 19.
+
+N = input("정수 입력 : ")
+for i in range(len(N)):
+    print(N[i])
+
+또는
+
+values = []
+N = int(input("정수 입력 : "))
+while N > 0:
+    values.append(N % 10)
+    N //= 10
+for i in range(len(values) - 1, -1, -1):
+    print(values[i])
+
+
+문제 20. 
+
+BYTE_PER_BIT = 8
+door = 0
+
+def getDoorNum(number):
+    return BYTE_PER_BIT - 1 - (number - 1)
+
+def printDoor(msg, door):
+    print(msg, ' : ', end=' ')
+    op = 1 << (BYTE_PER_BIT - 1)
+    for i in range(BYTE_PER_BIT):
+        if door & (op >> i): 
+            print(1, end='')
+        else:
+            print(0, end='')
+    print()
+
+def openDoor(door, number): 
+    door |= 1 << getDoorNum(number)    
+    return door 
+
+def closeDoor(door, number):    
+    door &= ~(1 << getDoorNum(number))
+    return door
+
+def toggleDoor(door):
+    printDoor("토글전", door)
+    door = ~door
+    printDoor("토글후", door)
+    return door
+
+def closeAll(door):
+    door &= 0
+    return door
+
+def openAll(door):
+    door = ~(door & 0)
+    return door
+
+printDoor('최초 도어 상태', door)
+door = openDoor(door, 1)
+door = openDoor(door, 3)
+door = openDoor(door, 5)
+door = openDoor(door, 6)
+printDoor('1, 3, 5, 6번 도어 개방 후 상태', door)
+door = closeDoor(door, 1)
+door = closeDoor(door, 5)
+printDoor('1, 5번 도어 폐쇄 후 상태', door)
+door = toggleDoor(door)
+printDoor('개방 도어 폐쇄, 폐쇄 도어 개방 후', door)
+door = closeAll(door)
+printDoor('모두 폐홰한 후 상태', door)
+door = openAll(door)
+printDoor('모두 개방 후 상태', door)
+
+
+문제 21.
+
+N = int(input('제품가격 : '))
+M = int(input('회원등급 : '))
+price = 0
+match M:
+    case 1:
+        price = N * ((100 - 25) / 100)
+    case 2:
+        price = N * ((100 - 20) / 100)
+    case 3:
+        price = N * ((100 - 15) / 100)
+    case 4:
+        price = N * ((100 - 10) / 100)
+    case _:
+        price = N
+
+print(f"가격 {N}, 할인가 {price}")
+
+
+문제 22.
+
+N = 10
+for i in range(0, N // 2):
+    print(i + 1, N - i, end=' ')
+
+
+문제 23.
+
+N = int(input('정수 입력 : '))
+cnt = 0
+for i in range(1, N + 1):
+    tmp = i
+    while tmp > 0:
+        if tmp % 10 != 0 and tmp % 10 % 3 == 0:
+            cnt += 1
+        tmp //= 10
+print("박수를 친 횟수 : ", cnt)
+
+
+문제 24. 
+
+N = int(input('정수 입력 : '))
+M = int(input('정수 입력 : '))
+for i in range(N, M, 2):
+    print(f"{i}의 제곱값 : {i ** 2}")
+
+
+문제 25.
+
+N = int(input('3일 숙박 요금 : '))
+M = int(input('1일 숙박 요금 : '))
+lower = M * 10 if M * 3 <= N else ((N * (10 // 3)) + ((10 % 3) * M))
+print(f"최저 숙박 비용 : {lower}")
